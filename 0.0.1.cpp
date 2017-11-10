@@ -21,7 +21,6 @@ int main() {
       return 0;
     }
     cout << a[m] << endl;
-    return 0;
   }
 }
 
