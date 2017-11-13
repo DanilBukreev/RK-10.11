@@ -6,16 +6,25 @@ int main()
     int i, n, x;
     cout << "Введите размер последовательности: " << endl;
     cin >> n;
-    if (n <= 0)
-        return 0;
-    int a[n];
-     cout << "Вdедите элементы последовательности: " << endl;
-    for (i = 0; i < n; i++) {
-
+    if (n <= 0) {
+       cout << "error" << endl;
+        return 1;
+    }
+    int *a = new int [n];
+     cout << "Введите элементы последовательности: " << endl;
+    for (i = 0; i < n; i++) {   // заполнение исходного массива
         cin >> a[i];
     }
     cout << "После какого элемента разделить последовательность?" << endl;
     cin >> x;
+    if ( x <= 0) {
+        cout << "error" << endl;
+        return 1;
+     }
+    if ( x > n ) {
+      cout << "error" << endl;
+        return 1;
+     }
     int b[x - 1], c[n - x - 1];
     for (i = 0; i < x; i++) {
         b[i] = a[i];
@@ -29,5 +38,6 @@ int main()
     for (i = 0; i < x; i++) {
         cout << b[i] << " ";
     }
+     delete [] a;
     return 0;
 }
